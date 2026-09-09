@@ -134,7 +134,7 @@ The script is built modularly:
 This project was completed as a two-person team for the ENCS3130 Linux Laboratory course.
 
 - Amir — Computer Engineering, Birzeit University
-- *[Partner name]*
+- Mohammad — Computer Engineering, Birzeit University
 
 ---
 
