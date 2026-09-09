@@ -1,0 +1,206 @@
+
+---BANK DATABASE SERVER FULL REPORT---
+
+
+---Failed Login Report---
+
+Total failed login attempts: 4 
+
+Failed attempts grouped by IP:
+      1 10.0.0.25
+      3 203.0.113.55
+Failed attempts grouped by USER:
+      1 admin
+      3 root
+
+Possible brute force IP addresses:
+203.0.113.55 -> 3 failed attempts
+
+
+---Query Activity Summary---
+
+
+Total QUERY events: 7
+
+Query types:
+SELECT : 3
+UPDATE : 2
+INSERT : 1
+DELETE : 1
+
+
+
+---Slow Query Detector---
+
+User: teller01
+Execution Time: N/A
+Query: 8-15 09:15:45] [WARNING] [SESSION 1006] [teller01] [192.168.1.20] [QUERY] - Slow query SELECT * FROM transactions execution time=4.5s
+------------------------------------
+User: manager
+Execution Time: N/A
+Query: 8-15 10:10:00] [WARNING] [SESSION 1007] [manager] [192.168.1.30] [QUERY] - Slow query UPDATE accounts SET balance=6000 execution time=6.2s
+------------------------------------
+
+
+---Transaction Report---
+
+Number of deposits: 2
+Number of withdrawals: 2
+Number of declined transactions: 1
+Number of rollbacks: 2
+
+Total deposited amount: 3500
+Total withdrawn amount : 800
+
+
+---Critical Events Report---
+
+Total critical events: 2
+
+Timestamp: 2026-08-15 10:30:00
+Module: TRANSACTION
+Message: 8-15 10:30:00] [CRITICAL] [SESSION 1007] [manager] [192.168.1.30] [TRANSACTION] - Transaction rollback due to system error
+------------------------------------
+Timestamp: 2026-08-15 11:00:00
+Module: BACKUP
+Message: 8-15 11:00:00] [CRITICAL] [SESSION SYSTEM] [system] [127.0.0.1] [BACKUP] - Backup failure
+------------------------------------
+
+
+---User Activity Report---
+
+
+User: teller01
+Total actions: 9
+
+Activity:
+
+Timestamp : 2026-08-15 09:00:00
+Level: INFO
+Session: SESSION 1006
+IP: 192.168.1.20
+Module: AUTH
+Action: 8-15 09:00:00] [INFO] [SESSION 1006] [teller01] [192.168.1.20] [AUTH] - Successful login
+------------------------------------
+Timestamp : 2026-08-15 09:05:15
+Level: INFO
+Session: SESSION 1006
+IP: 192.168.1.20
+Module: QUERY
+Action: 8-15 09:05:15] [INFO] [SESSION 1006] [teller01] [192.168.1.20] [QUERY] - INSERT INTO customers VALUES (101, 'Ahmad')
+------------------------------------
+Timestamp : 2026-08-15 09:10:30
+Level: INFO
+Session: SESSION 1006
+IP: 192.168.1.20
+Module: QUERY
+Action: 8-15 09:10:30] [INFO] [SESSION 1006] [teller01] [192.168.1.20] [QUERY] - UPDATE accounts SET balance=5000 WHERE id=101
+------------------------------------
+Timestamp : 2026-08-15 09:15:45
+Level: WARNING
+Session: SESSION 1006
+IP: 192.168.1.20
+Module: QUERY
+Action: 8-15 09:15:45] [WARNING] [SESSION 1006] [teller01] [192.168.1.20] [QUERY] - Slow query SELECT * FROM transactions execution time=4.5s
+------------------------------------
+Timestamp : 2026-08-15 09:20:00
+Level: INFO
+Session: SESSION 1006
+IP: 192.168.1.20
+Module: TRANSACTION
+Action: 8-15 09:20:00] [INFO] [SESSION 1006] [teller01] [192.168.1.20] [TRANSACTION] - Deposit amount=1500
+------------------------------------
+Timestamp : 2026-08-15 09:25:00
+Level: INFO
+Session: SESSION 1006
+IP: 192.168.1.20
+Module: TRANSACTION
+Action: 8-15 09:25:00] [INFO] [SESSION 1006] [teller01] [192.168.1.20] [TRANSACTION] - Withdrawal amount=300
+------------------------------------
+Timestamp : 2026-08-15 09:30:00
+Level: WARNING
+Session: SESSION 1006
+IP: 192.168.1.20
+Module: TRANSACTION
+Action: 8-15 09:30:00] [WARNING] [SESSION 1006] [teller01] [192.168.1.20] [TRANSACTION] - Declined transaction amount=900
+------------------------------------
+Timestamp : 2026-08-15 09:35:00
+Level: ERROR
+Session: SESSION 1006
+IP: 192.168.1.20
+Module: TRANSACTION
+Action: 8-15 09:35:00] [ERROR] [SESSION 1006] [teller01] [192.168.1.20] [TRANSACTION] - Rollback transaction
+------------------------------------
+Timestamp : 2026-08-15 12:15:00
+Level: INFO
+Session: SESSION 1006
+IP: 192.168.1.20
+Module: AUTH
+Action: 8-15 12:15:00] [INFO] [SESSION 1006] [teller01] [192.168.1.20] [AUTH] - Logout successful
+------------------------------------
+
+
+---Login/Logout Session Report---
+
+Session: [SESSION_1001]
+Login: 08:00:00
+Logout: 12:00:00
+Duration: 4 hours 0 minutes 0 seconds
+------------------------------------
+Session: [SESSION_1002]
+Login: Not available
+Logout: Not available
+------------------------------------
+Session: [SESSION_1003]
+Login: Not available
+Logout: Not available
+------------------------------------
+Session: [SESSION_1004]
+Login: Not available
+Logout: Not available
+------------------------------------
+Session: [SESSION_1005]
+Login: Not available
+Logout: Not available
+------------------------------------
+Session: [SESSION_1006]
+Login: 09:00:00
+Logout: 12:15:00
+Duration: 3 hours 15 minutes 0 seconds
+------------------------------------
+Session: [SESSION_1007]
+Login: 10:00:00
+Logout: 13:00:00
+Duration: 3 hours 0 minutes 0 seconds
+------------------------------------
+Session: [SESSION_SYSTEM]
+Login: Not available
+Logout: Not available
+------------------------------------
+
+
+---Events-per-Hour Report---
+
+08:00 - 08:59 : 6 events
+09:00 - 09:59 : 8 events
+10:00 - 10:59 : 6 events
+11:00 - 11:59 : 3 events
+12:00 - 12:59 : 2 events
+13:00 - 13:59 : 1 events
+
+
+---General Log Summary---
+
+Total log events: 26
+
+Events by log level:
+INFO: 16
+WARNING: 3
+ERROR: 5
+CRITICAL: 2
+
+Busiest module: AUTH
+Number of events: 10
+
+
+^^^END OF REPORT^^^

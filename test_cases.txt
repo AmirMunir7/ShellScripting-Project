@@ -1,0 +1,62 @@
+
+1) Brute Force & Failed Login Detection
+
+[2026-08-29 08:00:00] [ERROR] [SESSION_9001] [user_admin] [10.0.0.15] [AUTH] - Failed login attempt
+[2026-08-29 08:00:05] [ERROR] [SESSION_9002] [user_admin] [10.0.0.15] [AUTH] - Failed login attempt
+[2026-08-29 08:00:10] [ERROR] [SESSION_9003] [user_admin] [10.0.0.15] [AUTH] - Failed login attempt
+[2026-08-29 08:05:00] [ERROR] [SESSION_9004] [user_test] [192.168.1.99] [AUTH] - Failed login attempt
+
+---Failed Login Report---
+
+Total failed login attempts: 4 
+
+Failed attempts grouped by IP:
+      3 10.0.0.15
+      1 192.168.1.99
+
+Failed attempts grouped by USER:
+      3 user_admin
+      1 user_test
+
+Possible brute force IP addresses:
+10.0.0.15 -> 3 failed attempts
+
+
+2) Session Duration Calculation & Incomplete Session
+
+[2026-08-29 09:00:00] [INFO] [SESSION_2001] [user_sam] [192.168.1.10] [AUTH] - Successful login
+[2026-08-29 10:15:30] [INFO] [SESSION_2001] [user_sam] [192.168.1.10] [AUTH] - Logout successful
+[2026-08-29 11:00:00] [INFO] [SESSION_2002] [user_eve] [192.168.1.11] [AUTH] - Logout successful
+
+---Login/Logout Session Report---
+
+Session: [SESSION_2001]
+Login: 09:00:00
+Logout: 10:15:30
+Duration: 1 hours 15 minutes 30 seconds
+------------------------------------
+Session: [SESSION_2002]
+Login: Not available
+Logout: 11:00:00
+------------------------------------
+
+
+
+3)Empty Log File Edge Case
+
+---Transaction Report---
+
+No transaction events found.
+
+
+
+
+4) Non-Existent User Search & Input Cleansing
+
+[2026-08-29 08:00:00] [INFO] [SESSION_1001] [user_alice] [192.168.1.10] [AUTH] - Successful login
+
+---User Activity Report---
+
+Enter username: 
+Enter username: user_unknown
+User 'user_unknown' not found.
